@@ -6,7 +6,7 @@ public class Koch {
 		//// Uncomment the first code block to test the curve function.
 		//// Uncomment the second code block to test the snowflake function.
 		//// Uncomment only one block in each test, and remember to compile
-		//// the class whenever you change the test.
+		//// the class whenever you change the test
 
         /*
 		// Tests the curve function:
