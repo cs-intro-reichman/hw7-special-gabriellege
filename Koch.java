@@ -37,6 +37,6 @@ public class Koch {
 		StdDraw.setYscale(0, 1.1);
 		StdDraw.setXscale(0, 1.1);
 		// Draws a Koch snowflake of depth n
-		//// Write the rest of your code below.
+		//// Write the rest of your code below!
 	}
 }
