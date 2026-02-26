@@ -2,9 +2,9 @@
 public class IntToBin {
 
     public static void main(String[] args) {
-        int x = Integer.parseInt(args[0]);
-        //System.out.println("Binary representation of " + x + " is: " + toBinary(x));
-        System.out.println(toBinary(x));
+        In in = new In();
+        int x = in.readInt();
+        StdOut.println(toBinary(x));
     }
 
     /**
@@ -18,6 +18,6 @@ public class IntToBin {
         if (x == 1) {
             return "1";
         }
-        return toBinary(x / 2) + (x % 2); //becuse the base of binary is 2
+        return toBinary(x / 2) + (x % 2); // becuse the base of binary is 2
     }
 }
