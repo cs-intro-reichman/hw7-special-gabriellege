@@ -3,7 +3,8 @@ public class IntToBin {
 
     public static void main(String[] args) {
         int x = Integer.parseInt(args[0]);
-        System.out.println("Binary representation of " + x + " is: " + toBinary(x));
+        //System.out.println("Binary representation of " + x + " is: " + toBinary(x));
+        System.out.println(toBinary(x));
     }
 
     /**
