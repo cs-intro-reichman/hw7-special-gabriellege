@@ -3,6 +3,14 @@ public class LocalTester {
     public static TestHandler testHandler = new TestHandler();
 
     public static void main(String[] args) {
+        //added
+        if (args.length > 0) {
+            TesterQuestionEnum question = TesterQuestionEnum.valueOf(args[0]);
+            testHandler.questionDecider(question, args);
+            testHandler.conclusion();
+            return;
+        }
+
         StdOut.println("Welcome to the Localized Tester!");
         TesterQuestionEnum questionSelected = null;
         String input = "";
@@ -18,6 +26,7 @@ public class LocalTester {
 
             StdOut.println("");
             // input = in.readLine().toLowerCase().replaceAll(" ", "");
+            //added
             String line = in.readLine();
             if (line == null) {
                 return;
