@@ -11,6 +11,9 @@ public class TestHandler {
         for (int i = 1; i < args.length; i++) {
             testIntToBin(args[i]);
         }
+        if (this.tester.hasPassed()) {
+            this.tester.updatePoints();
+        }
         System.out.println(tester);
     }    
 
@@ -39,6 +42,9 @@ public class TestHandler {
         this.tester.reset(TesterQuestionEnum.IS_PALINDROME);
         for (int i = 1; i < args.length; i++) {
             testIsPalindrome(args[i]);
+        }
+        if (this.tester.hasPassed()) {
+            this.tester.updatePoints();
         }
         System.out.println(this.tester);
         
@@ -74,6 +80,9 @@ public class TestHandler {
         for (int i = 0; i < values.length; i++) {
             testBinomial(values[i]);
         }
+        if (this.tester.hasPassed()) {
+            this.tester.updatePoints();
+        }
         System.out.println(tester);
     }
 
@@ -96,26 +105,29 @@ public class TestHandler {
 
     public void mainTestMemoBinomial(String[] args) {
         this.tester.reset(TesterQuestionEnum.MEMO_BINOMIAL);
-        int [][] values = new int [args.length - 1][LocalTester.N_K_OUTPUT_LENGTH];
+        long [][] values = new long [args.length - 1][LocalTester.N_K_OUTPUT_LENGTH];
         for (int i = 1; i < args.length; i++) {
             String [] arr = args[i].split(",");
-            values[i-1][0] = Integer.parseInt(arr[0]);
-            values[i-1][1] = Integer.parseInt(arr[1]);
-            values[i-1][2] = Integer.parseInt(arr[2]);
+            values[i-1][0] = Long.parseLong(arr[0]);
+            values[i-1][1] = Long.parseLong(arr[1]);
+            values[i-1][2] = Long.parseLong(arr[2]);
         }
         for (int i = 0; i < values.length; i++) {
             testMemoBinomial(values[i]);
         }
+        if (this.tester.hasPassed()) {
+            this.tester.updatePoints();
+        }
         System.out.println(tester);
     }
 
-    public void testMemoBinomial(int[] value) {
-        int n = value[0];
-        int k = value[1];
+    public void testMemoBinomial(long[] value) {
+        long n = value[0];
+        long k = value[1];
         String expected = "" + value[2];
         String actual = "";
         try {
-            actual += Binomial.binomial(n, k);
+            actual += Binomial.binomial((int)n, (int)k);
         } catch (StackOverflowError e) {
             this.tester.gotExceptions();
             actual = TesterMessagesEnum.ERROR + "Stack Overflow " + e.getMessage();
@@ -125,11 +137,14 @@ public class TestHandler {
         }
         this.tester.test(n + ", " + k, expected, actual);
     }
-
+ 
     public void mainTestIsSorted(String[] args) {
         this.tester.reset(TesterQuestionEnum.IS_SORTED);
         for (int i = 1; i < args.length; i++) {
             testIsSorted(args[i]);
+        }
+        if (this.tester.hasPassed()) {
+            this.tester.updatePoints();
         }
         System.out.println(this.tester);
         
@@ -159,7 +174,6 @@ public class TestHandler {
         }
         this.tester.test(arrayStr, expected, actual);
     }
-
 
     public void conclusion() {
         this.tester.conclusion();
