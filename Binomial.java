@@ -26,7 +26,7 @@ public class Binomial {
 		/// elements to -1. / It then calls binomial(n, k, memo), which does all the
 		/// heavy lifiting.
 		// Replace the following statement with your code.
-		long[][] memo = new long[n + 1][k + 1];
+		long[][] memo = new long[Math.max(n, k) + 1][Math.max(n, k) + 1];
 		for (int i = 0; i <= n; i++) {
 			for (int j = 0; j <= k; j++) {
 				memo[i][j] = -1;
